@@ -1,1 +1,46 @@
-<p>editar works!</p>
+<app-header></app-header>
+<div class="container">
+<form [formGroup]="editarForm" (ngSubmit)="postForm()">
+   <div class="form-group">
+      <label for="exampleFormControlInput">Nombre</label>
+      <input type="text" class="form-control" placeholder="Nombre del paciente" formControlName="nombre">
+   </div>
+   <div class="form-group">
+      <label for="exampleFormControlInput">Direccion</label>
+      <input type="text" class="form-control" placeholder="Direccion" formControlName="direccion">
+   </div>
+   <div class="form-group row">
+      <div class="col">
+         <label for="exampleFormControlInput">DNI</label>
+         <input type="text" class="form-control" placeholder="DNI" formControlName="dni">
+      </div>
+      <div class="col">
+         <label for="exampleFormControlInput">Codigo Postal</label>
+         <input type="text" class="form-control" placeholder="Codigo Postal" formControlName="codigoPostal">
+      </div>
+      <div class="col">
+         <label for="exampleFormControlInput">Telefono</label>
+         <input type="text" class="form-control" placeholder="Telefono" formControlName="telefono">
+      </div>
+   </div>
+   <div class="form-group row">
+      <div class="col">
+         <label for="exampleFormControlInput">Fecha Nacimiento</label>
+         <input type="text" class="form-control" placeholder="aaaa/mm/dd" formControlName="fechaNacimiento">
+      </div>
+      <div class="col">
+         <label for="exampleFormControlInput">Correo</label>
+         <input type="text" class="form-control" placeholder="Correo" formControlName="correo">
+      </div>
+      <div class="col">
+         <label for="exampleFormControlInput">Genero</label>
+         <input type="text" class="form-control" placeholder="Genero" formControlName="genero">
+      </div>
+   </div>
+   <br><br>
+   <button type="submit" class="btn btn-primary">Guardar</button>
+   <button type="button" class="btn btn-danger" (click)="eliminar()">Eliminar</button>
+   <button type="button" class="btn btn-dark" (click)="salir()">Salir</button>
+</form>
+</div>
+<app-footer></app-footer>  
