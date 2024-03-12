@@ -51,6 +51,7 @@ export class EditarComponent {
   ngOnInit():void{
     let pacienteid = this.activerouter.snapshot.paramMap.get('id');
     let token=this.getToken();
+    this.checkToken(token);
     this.api.getSinglePacient(pacienteid).subscribe((data: any) => {
       this.datosPaciente = data[0];
       this.editarForm.setValue({
@@ -66,6 +67,16 @@ export class EditarComponent {
         'token': token
       });
     })
+  }
+  checkToken(token : any): void {
+    this.api.getStateToken(token).subscribe(
+      data => {
+        let dataResponse:ResponseI = data;
+        if(dataResponse.status=="error"){
+          localStorage.removeItem('token');
+          this.router.navigate(['login']);
+        }
+      });
   }
 
   getToken():string | null {
